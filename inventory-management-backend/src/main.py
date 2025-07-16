@@ -79,6 +79,9 @@ def serve(path):
 def health_check():
     return {'status': 'healthy', 'message': 'Inventory Management System API is running'}, 200
 
+import os
+
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=True)
 
